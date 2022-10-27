@@ -4,6 +4,7 @@ import About from '../../components/About/About/About';
 import Blog from '../../components/Blog/Blog/Blog';
 import Courses from '../../components/Courses/Courses/Courses';
 import Home from '../../components/Home/Home/Home';
+import LeftSideNav from '../../components/LeftSideNav/LeftSideNav/LeftSideNav';
 import Login from '../../components/Login/Login/Login';
 import Register from '../../components/Register/Register/Register';
 import Main from '../../layout/Main/Main';
@@ -18,7 +19,14 @@ export const router=createBrowserRouter([
                 },
                 {
                     path:'/courses',
-                    element:<Courses></Courses>
+                    element:<Courses></Courses>,
+                    loader:()=>fetch(`http://localhost:2000/courses`)
+                },
+                {
+                    path:'/courses/:id',
+                    element:<LeftSideNav></LeftSideNav>,
+                    loader:({params})=>fetch(`http://localhost:2000/courses/${params.id}`)
+
                 },
                 {
                     path:'/about',

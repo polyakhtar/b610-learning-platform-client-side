@@ -1,5 +1,4 @@
 import React from 'react';
-import './Home.css'
 const Home = () => {
     return (
         <div className='bg-black p-60 d-flex align-items-center justify-content-center'>
