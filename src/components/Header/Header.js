@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
 
 const Header = () => {
+  const [open,setOpen]=useState(false);
   const {user,logOut}=useContext(AuthContext);
   const handleLogOut=()=>{
     logOut()
@@ -16,6 +17,10 @@ const Header = () => {
    <Link className="btn btn-ghost normal-case text-xl" to='/courses'>Courses</Link>
    <Link className="btn btn-ghost normal-case text-xl" to='/about'>About</Link>
    <Link className="btn btn-ghost normal-case text-xl" to='/blog'>Blog</Link>
+   {
+    open?<button onClick={()=>setOpen(!open)}>Dark</button>:
+    <button onClick={()=>setOpen(!open)}>Light</button>
+   }
    {
     user?.email? 
 <button className="text-black" onClick={handleLogOut}>LogOut</button>:
