@@ -1,12 +1,21 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Authprovider/Authprovider';
 
 const Login = () => {
-    const {logIn,googleLogIn}=useContext(AuthContext);
+    const {logIn,googleLogIn,githubSignIn}=useContext(AuthContext);
+    const githubProvider=new GithubAuthProvider();
     const googleProvider=new GoogleAuthProvider();
+    const handleGithubSignIn=()=>{
+      githubSignIn(githubProvider)
+      .then(result=>{
+        const user=result.user;
+        console.log(user)
+      })
+      .catch(error=>console.error(error))
+    }
     const handleGooleSignIn=()=>{
       googleLogIn(googleProvider)
       .then(result=>{
@@ -55,7 +64,9 @@ const handleLogIn=event=>{
               </div>
               <p>New to this website ? Please <Link to='/register'>Register</Link></p>
             </form>
-            <Button onClick={handleGooleSignIn} variant="primary">GOOGLE</Button>
+            <Button onClick={handleGooleSignIn} variant="primary">GOOGLE SIGN IN</Button>
+            <br></br>
+            <Button onClick={handleGithubSignIn} variant="primary">GITHUB SIGN IN</Button>
           </div>
         </div>
       </div>
