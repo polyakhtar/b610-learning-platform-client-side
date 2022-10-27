@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Authprovider/Authprovider';
-
 const Header = () => {
   const [open,setOpen]=useState(false);
   const {user,logOut}=useContext(AuthContext);
@@ -20,12 +19,6 @@ const Header = () => {
    {
     open?<button onClick={()=>setOpen(!open)}>Dark</button>:
     <button onClick={()=>setOpen(!open)}>Light</button>
-   }
-   {
-    user?.displayName? 
-    <div>{user.displayName}</div>
-    :
-    <div></div>
    }
    {
     user?.email? 
