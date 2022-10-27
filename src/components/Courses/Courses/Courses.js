@@ -8,7 +8,7 @@ import LeftSideNav from '../../LeftSideNav/LeftSideNav/LeftSideNav';
 const Courses = () => {
      const coursedata=useLoaderData();
     return (
-        <div className='flex justify-content-center m-4'>
+        <div className='flex justify-content-center m-6'>
         <div >
         <LeftSideNav></LeftSideNav>
         </div>

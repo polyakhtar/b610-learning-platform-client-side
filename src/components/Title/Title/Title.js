@@ -1,12 +1,9 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
-
 const Title = ({link}) => {
-    const {title}=link;
-    
+    const {title}=link; 
     return (
         <div>
-            <h4><Link to={`/coursedetaildata/${link.id}`}> {title}</Link></h4>
+            <h4> {title}</h4>
         </div>
     );
 };

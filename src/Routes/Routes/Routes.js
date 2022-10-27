@@ -8,7 +8,6 @@ import Home from '../../components/Home/Home/Home';
 import LeftSideNav from '../../components/LeftSideNav/LeftSideNav/LeftSideNav';
 import Login from '../../components/Login/Login/Login';
 import Register from '../../components/Register/Register/Register';
-import Title from '../../components/Title/Title/Title';
 import Main from '../../layout/Main/Main';
 export const router=createBrowserRouter([
         {
@@ -31,9 +30,9 @@ export const router=createBrowserRouter([
 
                 },
                 {
-                   path:'/coursedetaildata',
+                   path:'/coursedetaildata/:id',
                    element:<CourseDetail></CourseDetail>,
-                   loader:()=>fetch('http://localhost:2000/coursedetaildata')
+                   loader:({params})=>fetch(`http://localhost:2000/coursedetaildata/${params.id}`)
                 },
                 {
                     path:'/about',

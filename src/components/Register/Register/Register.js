@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Authprovider/Authprovider';
 
 const Register = () => {
@@ -31,9 +32,9 @@ const Register = () => {
          <form onSubmit={handleRegister} className="card-body">
            <div className="">
              <label className="label">
-               <span className="label-text">Name</span>
+               <span className="label-text">Full Name</span>
              </label>
-             <input  type="text" name='name' placeholder="Your Name" className="input input-bordered w-100" />
+             <input  type="text" name='name' placeholder="Full Name" className="input input-bordered w-100" />
            </div>
            <div className="">
              <label className="label">
@@ -56,6 +57,7 @@ const Register = () => {
            <div className=" mt-6">
              <button className="btn btn-primary w-100">Login</button>
            </div>
+           <p>Already have an account ? Please <Link to='/login'>Login</Link></p>
          </form>
        </div>
      </div>

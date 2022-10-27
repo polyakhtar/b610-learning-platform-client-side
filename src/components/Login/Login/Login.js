@@ -1,21 +1,33 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Authprovider/Authprovider';
 
 const Login = () => {
-    const {logIn}=useContext(AuthContext);
+    const {logIn,googleLogIn}=useContext(AuthContext);
+    const googleProvider=new GoogleAuthProvider();
+    const handleGooleSignIn=()=>{
+      googleLogIn(googleProvider)
+      .then(result=>{
+        const user=result.error;
+        console.log(user)
+      })
+      .catch(error=>console.error(error))
+    }
 const handleLogIn=event=>{
     event.preventDefault();
     const form=event.target;
     const email=form.email.value;
     const password=form.password.value;
-    console.log(email,password)
+    console.log(email,password);
     logIn(email,password)
     .then(result=>{
         const user=result.user;
-        console.log(user)
+        console.log(user);
+        form.reset();
     })
     .catch(error=>console.error(error))
-
 }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -41,7 +53,9 @@ const handleLogIn=event=>{
               <div className=" mt-6">
                 <button className="btn btn-primary w-100">Login</button>
               </div>
+              <p>New to this website ? Please <Link to='/register'>Register</Link></p>
             </form>
+            <Button onClick={handleGooleSignIn} variant="primary">GOOGLE</Button>
           </div>
         </div>
       </div>
