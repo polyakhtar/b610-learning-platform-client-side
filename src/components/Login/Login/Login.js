@@ -1,13 +1,14 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/Authprovider/Authprovider';
 
 const Login = () => {
     const {logIn,googleLogIn,githubSignIn}=useContext(AuthContext);
     const githubProvider=new GithubAuthProvider();
     const googleProvider=new GoogleAuthProvider();
+    const navigate=useNavigate();
     const handleGithubSignIn=()=>{
       githubSignIn(githubProvider)
       .then(result=>{
@@ -35,6 +36,7 @@ const handleLogIn=event=>{
         const user=result.user;
         console.log(user);
         form.reset();
+        navigate('/');
     })
     .catch(error=>console.error(error))
 }

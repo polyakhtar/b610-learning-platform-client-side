@@ -9,6 +9,7 @@ import LeftSideNav from '../../components/LeftSideNav/LeftSideNav/LeftSideNav';
 import Login from '../../components/Login/Login/Login';
 import Register from '../../components/Register/Register/Register';
 import Main from '../../layout/Main/Main';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 export const router=createBrowserRouter([
         {
             path:'/',
@@ -31,7 +32,7 @@ export const router=createBrowserRouter([
                 },
                 {
                    path:'/coursedetaildata/:id',
-                   element:<CourseDetail></CourseDetail>,
+                   element:<PrivateRoute><CourseDetail></CourseDetail></PrivateRoute>,
                    loader:({params})=>fetch(`http://localhost:2000/coursedetaildata/${params.id}`)
                 },
                 {
