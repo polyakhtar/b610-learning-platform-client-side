@@ -4,6 +4,7 @@ import About from '../../components/About/About/About';
 import Blog from '../../components/Blog/Blog/Blog';
 import CourseDetail from '../../components/CourseDetail/CourseDetail/CourseDetail';
 import Courses from '../../components/Courses/Courses/Courses';
+import ErrorPage from '../../components/Errorpage/ErrorPage/ErrorPage';
 import Home from '../../components/Home/Home/Home';
 import LeftSideNav from '../../components/LeftSideNav/LeftSideNav/LeftSideNav';
 import Login from '../../components/Login/Login/Login';
@@ -14,6 +15,7 @@ export const router=createBrowserRouter([
         {
             path:'/',
             element:<Main></Main>,
+            errorElement:<ErrorPage></ErrorPage>,
             children:[
                 {
                     path:'/',
