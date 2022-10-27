@@ -4,16 +4,15 @@ import { AuthContext } from '../../../contexts/Authprovider/Authprovider';
 const Login = () => {
     const {logIn}=useContext(AuthContext);
 const handleLogIn=event=>{
-    console.log(event)
     event.preventDefault();
     const form=event.target;
     const email=form.email.value;
     const password=form.password.value;
-    // console.log(email,password)
+    console.log(email,password)
     logIn(email,password)
     .then(result=>{
         const user=result.user;
-        // console.log(user)
+        console.log(user)
     })
     .catch(error=>console.error(error))
 
@@ -31,13 +30,13 @@ const handleLogIn=event=>{
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input  type="email" placeholder="email" className="input input-bordered w-100" />
+                <input  type="email" name="email" placeholder="email" className="input input-bordered w-100" />
               </div>
               <div className="">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="password" placeholder="password" className="input input-bordered w-100" />
+                <input type="password" name="password" placeholder="password" className="input input-bordered w-100" />
               </div>
               <div className=" mt-6">
                 <button className="btn btn-primary w-100">Login</button>
