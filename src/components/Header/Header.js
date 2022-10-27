@@ -22,6 +22,12 @@ const Header = () => {
     <button onClick={()=>setOpen(!open)}>Light</button>
    }
    {
+    user?.displayName? 
+    <div>{user.displayName}</div>
+    :
+    <div></div>
+   }
+   {
     user?.email? 
 <button className="text-black" onClick={handleLogOut}>LogOut</button>:
 <Link to='/login'><button className='btn btn-sm'>LogIn</button></Link>
