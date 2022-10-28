@@ -24,12 +24,12 @@ const Header = () => {
     <button className='text-white' onClick={()=>setOpen(!open)}>Light</button>
    }
    {
-    user?.email &&<span>{user.displayName}</span>
+    user?.uid &&<span>{user.displayName}</span>
    }
    {
-    user?.email? 
-<button className="text-black m-2" onClick={handleLogOut}>LogOut</button>:
-<Link to='/login'><button className='btn btn-sm'>LogIn</button></Link>
+    user?.uid? 
+<button className="text-black m-2" onClick={handleLogOut}>LOGOUT</button>:
+<Link to='/login'><button className='btn btn-sm'>LOGIN</button></Link>
    }
    
    
