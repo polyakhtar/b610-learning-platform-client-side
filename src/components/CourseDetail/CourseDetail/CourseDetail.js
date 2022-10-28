@@ -10,7 +10,7 @@ const CourseDetail = () => {
        <h4 >{coursedetaildata.title}</h4>
       <p ><img src={coursedetaildata.image} alt=""/></p>
        <p>{coursedetaildata.description}</p>
-       
+      
        <div>
        <Pdf targetRef={ref} filename="code-example.pdf">
         {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}

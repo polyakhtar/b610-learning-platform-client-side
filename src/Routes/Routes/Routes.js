@@ -24,18 +24,18 @@ export const router=createBrowserRouter([
                 {
                     path:'/courses',
                     element:<Courses></Courses>,
-                    loader:()=>fetch('http://localhost:2000/courses')
+                    loader:()=>fetch('https://learning-computer-club-server.vercel.app/courses')
                 },
                 {
                     path:'/courses/:id',
                     element:<LeftSideNav></LeftSideNav>,
-                    loader:({params})=>fetch(`http://localhost:2000/courses/${params.id}`)
+                    loader:({params})=>fetch(`https://learning-computer-club-server.vercel.app/courses/${params.id}`)
 
                 },
                 {
                    path:'/coursedetaildata/:id',
                    element:<PrivateRoute><CourseDetail></CourseDetail></PrivateRoute>,
-                   loader:({params})=>fetch(`http://localhost:2000/coursedetaildata/${params.id}`)
+                   loader:({params})=>fetch(`https://learning-computer-club-server.vercel.app/coursedetaildata/${params.id}`)
                 },
                 {
                     path:'/about',
